@@ -1,0 +1,43 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo">
+      <div class="title"><a [routerLink]="['/']">LIBRARY MANAGEMENT SYSTEM</a></div>
+    </div>
+  </nz-header>
+  <nz-content class="outer-content">
+    <nz-layout class="inner-layout">
+      <nz-sider nzWidth="200px" nzTheme="light">
+        <ul nz-menu nzMode="inline" class="sider-menu">
+          <li nz-submenu nzTitle="Books" nzIcon="book">
+              <ul>
+                <li nz-menu-item [routerLink]="['books']">Book List</li>
+                <li nz-menu-item [routerLink]="['book']">Add Book</li>
+              </ul>
+          </li>
+          <li nz-submenu nzTitle="Students" nzIcon="user">
+            <ul>
+              <li nz-menu-item [routerLink]="['students']">Student List</li>
+              <li nz-menu-item [routerLink]="['student']">Add Student</li>
+              <li nz-menu-item [routerLink]="['issue-book-student']" [queryParams]="{ role: 'student' }">Issue/Return Book</li>
+            </ul>
+        </li>
+        <li nz-submenu nzTitle="Faculty" nzIcon="user">
+          <ul>
+            <li nz-menu-item [routerLink]="['faculty']">Faculty List</li>
+            <li nz-menu-item [routerLink]="['faculty-form']">Add Faculty</li>
+            <li nz-menu-item [routerLink]="['issue-book-faculty']" [queryParams]="{ role: 'faculty' }">Issue/Return Book</li>
+          </ul>
+        </li>
+        <!-- <li nz-menu-item [routerLink]="['books']">All Books</li>
+        <li nz-menu-item [routerLink]="['book']">Add Book</li>
+        <li nz-menu-item [routerLink]="['issue-book']">Issue Book</li>
+        <li nz-menu-item>Return Book</li>
+        <li nz-menu-item>Manage Users</li> -->
+        </ul>
+      </nz-sider>
+      <nz-content class="inner-content">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>
+  </nz-content>
+</nz-layout>

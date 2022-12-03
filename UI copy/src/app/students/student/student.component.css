@@ -1,0 +1,6 @@
+[nz-form] {
+    max-width: 600px;
+}
+.ant-form-item-label {
+    text-align: left !important;
+}

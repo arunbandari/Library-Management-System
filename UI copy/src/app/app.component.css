@@ -1,0 +1,51 @@
+.logo {
+    color: #fff;
+    margin: 0px auto;
+    padding: 0px auto;
+  }
+
+  .title {
+    text-align: center;
+    color: #fff !important;
+    font-weight: bolder;
+  }
+
+  .title a {
+    color: #fff !important;
+  }
+
+  .header-menu {
+    line-height: 64px;
+  }
+
+  .outer-content {
+    padding: 0 0px;
+  }
+
+  nz-breadcrumb {
+    margin: 16px 0;
+  }
+
+  .inner-layout {
+    padding: 24px 0;
+    background: #fff;
+    /* border: 3px solid #ddd; */
+  }
+
+  .sider-menu {
+    height: 100%;
+  }
+
+  .inner-content {
+    padding: 0 50px;
+    min-height: 85vh;
+  }
+
+  nz-footer {
+    text-align: center;
+  }
+
+nz-content {
+  /* opacity: 0.5; */
+  /* background-image: url('https://cdn.shopify.com/s/files/1/0984/3604/products/backdrop-blurred-books-library-room-1_1340x.jpg?v=1612742970'); */
+}

@@ -1,0 +1,73 @@
+<h2>{{mapper[role].title}}</h2>
+<div class="parent">
+    <div>
+        <div nz-form [nzLayout]="'inline'" autocomplete="off">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input Student/Faculty Id!">
+                <nz-input-group nzPrefixIcon="user">
+                  <input [(ngModel)]="userId" nz-input placeholder="{{getPlaceHolder()}}" autocomplete="false"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button nzType="primary" (click)="getUserById()">SEARCH USER</button>
+              </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div *ngIf="user?.[mapper[role].name]">
+            Name: {{user?.[mapper[role].name]}}<br>
+            Department: {{user?.department_name}}
+        </div>
+    </div>
+    <div>
+        <div nz-form [nzLayout]="'inline'" autocomplete="off" *ngIf="user?.[mapper[role].name]">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input Book ID!">
+                <nz-input-group nzPrefixIcon="book">
+                  <input [(ngModel)]="bookId" nz-input placeholder="Book ID" autocomplete="false"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button nzType="primary" (click)="getBookById()">FETCH BOOK</button>
+              </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div *ngIf="book?.book_name">
+            Name: {{book?.book_name}}<br>
+            Author: {{book?.book_author}}
+            <br>
+            <br>
+            <button nz-button nzType="primary" nzBlock (click)="issueBook()" [disabled]="!available">{{available ? 'Issue Book' : 'Not available'}}</button>
+        </div>
+    </div>
+</div>
+<nz-table #smallTable nzBordered nzSize="small" [nzData]="history" class="page" *ngIf="history.length">
+    <thead>
+      <tr>
+        <th>SNo</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Issue Date</th>
+        <th>Due Date</th>
+        <th>Fine</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of smallTable.data;let i=index">
+        <td>{{ i+1  }}</td>
+        <td class="title">{{ data.book_name }}</td>
+        <td>{{ data.book_author }}</td>
+        <td>{{ data.issue_date | date }}</td>
+        <td>{{ data.due_date | date}}</td>
+        <td>{{ data.fine | currency }}</td>
+        <td>
+            <button nz-button *ngIf="data.status" nzType="default" disabled>RETURNED</button>
+            <button nz-button (click)="returnBook(data.book_request_id)" *ngIf="!data.status">RETURN</button>
+        </td>
+      </tr>
+    </tbody>
+</nz-table>

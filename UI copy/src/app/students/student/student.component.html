@@ -1,0 +1,21 @@
+<h2>{{title}}</h2>
+
+<form nz-form [formGroup]="studentForm" (ngSubmit)="submit()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">Name</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <input nz-input type="text" formControlName="student_name"/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="department" nzRequired>Department</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24"  nzErrorTip="Please select department!">
+          <nz-select formControlName="student_department_id">
+            <nz-option nzValue=1 nzLabel="Computer Science And Engineering"></nz-option>
+            <nz-option nzValue=2 nzLabel="Information Technolgy"></nz-option>
+            <nz-option nzValue=3 nzLabel="Mechanical Engineering"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [disabled]="!studentForm.valid">Save</button>
+</form>

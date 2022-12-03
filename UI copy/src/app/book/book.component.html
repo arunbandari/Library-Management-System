@@ -1,0 +1,17 @@
+<h2>{{title}}</h2>
+
+<form nz-form [formGroup]="bookForm" (ngSubmit)="submit()">
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title">Title</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <input nz-input type="text" formControlName="book_name"/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="author">Author</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+            <input nz-input type="text" formControlName="book_author"/>
+        </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [disabled]="!bookForm.valid">Save</button>
+</form>

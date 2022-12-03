@@ -1,0 +1,21 @@
+<h2>Student List</h2>
+<nz-table #smallTable nzBordered nzSize="small" [nzData]="students" class="page">
+    <thead>
+      <tr>
+        <th>SNo</th>
+        <th>Name</th>
+        <!-- <th>DOB</th> -->
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of smallTable.data">
+        <td>{{ data.student_id }}</td>
+        <td>{{ data.student_name }}</td>
+        <!-- <td>{{ data.student_dob | date }}</td> -->
+        <td>{{ data.department_name }}</td>
+        <td><a [routerLink]="['/student', data.student_id]">Edit</a></td>
+      </tr>
+    </tbody>
+</nz-table>
